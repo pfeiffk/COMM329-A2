@@ -1,0 +1,55 @@
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+  padding: 1em;
+}
+
+.primary {
+  flex-grow: .6;
+  text-align: center;
+}
+
+.flex-container {
+  diplay: flex;
+  flex-direction: right;
+  justify-content: space-around;
+  padding: 1em;
+}
+
+.grid-container {
+  diplay: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-container {
+  grid-template-areas:
+                        "image1 info1 info1"
+                        "image2 info2 info2"
+                        "image3 info3 info3"
+}
+
+.one {
+  grid-area: image1;
+}
+
+.two {
+  grid-area: info1;
+}
+
+.three {
+  grid-area: image2;
+}
+
+.four {
+  grid-area: info2;
+}
+
+.five {
+  grid-area: image3;
+}
+
+.six {
+  grid-area: info3;
+}
