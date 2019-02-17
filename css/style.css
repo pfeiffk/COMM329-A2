@@ -1,21 +1,61 @@
+:root {
+  --navsBG: #000F08;
+  --navsTXT: #BFC3BA;
+}
+
 nav ul {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   list-style: none;
-  padding: 1em;
+  padding: .7em;
+  font-family: 'Amatic SC', cursive, sans-serif;
+  font-size: 16pt;
 }
 
+nav, footer {
+  background-color: var(--navsBG);
+  color: var(--navsTXT);
+}
+
+footer {
+  text-align: center;
+  padding: .4em 0 .4em 0;
+}
+
+nav a:link, nav a:visited {
+  color: var(--navsTXT);
+  text-decoration: none;
+}
+nav a:hover, nav a:active  {
+  color: #F0F0F0;
+  text-decoration: underline;
+}
+nav a.active {
+  color: #F0F0F0;
+}
 .primary {
   flex-grow: .6;
   text-align: center;
+  font-size: 25pt;
+  font-family: 'Cutive Mono', monospace;
 }
 
-.flex-container {
-  diplay: flex;
-  flex-direction: right;
+
+.head-overlay {
+  display: flex;
   justify-content: space-around;
-  padding: 1em;
+}
+
+.flex-container {/*--container styles --*/
+ margin-bottom: 1em;
+ padding: 1em; /*-- adds 1em of padding all around --*/
+ display: flex; /*-- sets the display mode--*/
+ flex-direction: row; /*-- sets direction row or column --*/
+ justify-content: space-around; /*-- aligns content on main axis --*/
+ align-items: stretch;
+ flex-wrap: wrap; /*-- determines whether content wraps or not --*/
 }
 
 .grid-container {
@@ -24,32 +64,33 @@ nav ul {
 }
 
 .grid-container {
+  padding: 1em;
+  display: grid;
+  grid-gap: 1em 2em;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-item {
+  padding: .5em;
+}
+
+.grid-container {
   grid-template-areas:
-                        "image1 info1 info1"
-                        "image2 info2 info2"
-                        "image3 info3 info3"
+                      "image1 info1 info1"
+                      "image2 info2 info2"
+                      "image3 info3 info3";
 }
 
-.one {
-  grid-area: image1;
-}
+.one   { grid-area: image1; }
 
-.two {
-  grid-area: info1;
-}
+.two   { grid-area: info1; }
 
-.three {
-  grid-area: image2;
-}
+.three { grid-area: image2; }
 
-.four {
-  grid-area: info2;
-}
+.four  { grid-area: info2; }
 
-.five {
-  grid-area: image3;
-}
+.five  { grid-area: image3; }
 
-.six {
-  grid-area: info3;
+.six   { grid-area: info3; }
+
 }
