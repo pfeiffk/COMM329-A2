@@ -56,28 +56,17 @@ nav a.active {
   justify-content: space-around;
 }
 
-.flex-container {/*--container styles --*/
+/* .flex-container {
  margin-bottom: 1em;
- padding: 1em; /*-- adds 1em of padding all around --*/
- display: flex; /*-- sets the display mode--*/
- flex-direction: row; /*-- sets direction row or column --*/
- justify-content: space-around; /*-- aligns content on main axis --*/
+ padding: 1em;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
  align-items: stretch;
- flex-wrap: nowrap; /*-- determines whether content wraps or not --*/
-}
+ flex-wrap: nowrap;
+} */
 
-.box {
-  border: 2px solid var(--boxBorders);
-  padding: 1em;
-  background-color: var(--boxBG);
-}
-
-.grid-container {
-  diplay: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.grid-container {
+.grid-container{
   padding: 1em;
   display: grid;
   grid-gap: 1em 2em;
@@ -85,7 +74,14 @@ nav a.active {
 }
 
 .grid-item {
-  padding: .5em;
+  padding: 1em;
+}
+
+.left, .center, .right {
+  display: flex;
+  border: 2px solid var(--boxBorders);
+  background-color: var(--boxBG);
+
 }
 
 .one, .three, .five {
@@ -97,78 +93,72 @@ nav a.active {
   background-color: var(--boxBG);
 }
 
-.one   { grid-area: image1; }
+.left  {   grid-area: lt;  }
+
+.center{   grid-area: ct;  }
+
+.right {   grid-area: rt;  }
+
+.one   { grid-area: image1;}
 
 .two   { grid-area: info1; }
 
-.three { grid-area: image2; }
+.three { grid-area: image2;}
 
 .four  { grid-area: info2; }
 
-.five  { grid-area: image3; }
+.five  { grid-area: image3;}
 
 .six   { grid-area: info3; }
 
 @media screen and (min-width: 400px) {
   .grid-container{grid-template-columns: repeat(1, 1fr);}
-  .grid-container { grid-template-areas:  "image1"
+  .grid-container { grid-template-areas:  "lt"
+                                          "ct"
+                                          "rt"
+                                          "image1"
                                           "info1"
                                           "image2"
                                           "info2"
                                           "image3"
                                           "info3";}
-
 }
 
 @media screen and (min-width: 550px) {
-  .grid-container{grid-template-columns: repeat(1, 1fr);}
-  .grid-container { grid-template-areas:  "image1"
-                                          "info1"
-                                          "image2"
-                                          "info2"
-                                          "image3"
-                                          "info3";}
-
+  .grid-container{grid-template-columns: repeat(6, 1fr);}
+  .grid-container { grid-template-areas:  "lt lt ct ct rt rt"
+                                          "image1 image1 image1 info1 info1 info1"
+                                          "image2 image2 image2 info2 info2 info2"
+                                          "image3 image3 image3 info3 info3 info3";}
 }
 @media screen and (min-width: 768px) {
-  .grid-container{grid-template-columns: repeat(2, 1fr);}
-  .grid-container { grid-template-areas:  "image1 info1"
-                                          "image2 info2"
-                                          "image3 info3";}
+  .grid-container{grid-template-columns: repeat(6, 1fr);}
+  .grid-container { grid-template-areas:  "lt lt ct ct rt rt"
+                                          "image1 image1 info1 info1 info1 info1 "
+                                          "image2 image2 info2 info2 info2 info2"
+                                          "image3 image3 info3 info3 info3 info3";}
 }
 @media screen and (min-width: 980px) {
   .grid-container{grid-template-columns: repeat(3, 1fr);}
-  .grid-container{ grid-template-areas:   "image1 info1 info1"
+  .grid-container{ grid-template-areas:
+                                          "lt ct rt"
                                           "image1 info1 info1"
-                                          "image1 info1 info1"
                                           "image2 info2 info2"
-                                          "image2 info2 info2"
-                                          "image2 info2 info2"
-                                          "image3 info3 info3"
-                                          "image3 info3 info3"
                                           "image3 info3 info3";}
 }
 @media screen and (min-width: 1280px) {
   .grid-container{grid-template-columns: repeat(3, 1fr);}
-  .grid-container{ grid-template-areas:   "image1 info1 info1"
+  .grid-container{ grid-template-areas:
+                                          "lt ct rt"
                                           "image1 info1 info1"
-                                          "image1 info1 info1"
                                           "image2 info2 info2"
-                                          "image2 info2 info2"
-                                          "image2 info2 info2"
-                                          "image3 info3 info3"
-                                          "image3 info3 info3"
                                           "image3 info3 info3";}
 }
 @media screen and (min-width: 1440px) {
   .grid-container{grid-template-columns: repeat(3, 1fr);}
-  .grid-container{ grid-template-areas:   "image1 info1 info1"
+  .grid-container{ grid-template-areas:
+                                          "lt ct rt"
                                           "image1 info1 info1"
-                                          "image1 info1 info1"
                                           "image2 info2 info2"
-                                          "image2 info2 info2"
-                                          "image2 info2 info2"
-                                          "image3 info3 info3"
-                                          "image3 info3 info3"
                                           "image3 info3 info3";}
 }
