@@ -9,8 +9,6 @@ body {
   background-color: var(--BG);
 }
 nav ul {
-  display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   list-style: none;
@@ -43,16 +41,24 @@ nav a:hover, nav a:active  {
 nav a.active {
   color: #F0F0F0;
 }
+
 .primary {
-  flex-grow: .4;
   text-align: center;
-  font-size: 25pt;
   font-family: 'Cutive Mono', monospace;
 }
 
 .head-overlay {
+  margin-top: 0;
   display: flex;
   justify-content: space-around;
+  padding: 2em;
+  background-image: url(https://picsum.photos/1600/600/?image=872);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Amatic SC', cursive, sans-serif;
+  font-size: 38pt;
+  border-bottom: 2px solid var(--boxBorders);
 }
 
 /* .flex-container {
@@ -83,13 +89,48 @@ nav a.active {
 
 .left, .center, .right {
   display: flex;
+  justify-content: center;
   border: 2px solid var(--boxBorders);
   background-color: var(--boxBG);
-
+  padding: 2em;
 }
+
+.left {
+  background-image: url(https://picsum.photos/800/600/?image=590);
+  background-repeat: no-repeat;
+  background-position: center;
+  color: var(--navsTXT);
+  font-family: 'Cutive Mono', monospace;
+  font-size: 24pt;
+}
+
+.center {
+  background-image: url(https://picsum.photos/800/600/?image=590);
+  background-repeat: no-repeat;
+  background-position: center;
+  color: var(--navsTXT);
+  font-family: 'Cutive Mono', monospace;
+  font-size: 24pt;
+}
+
+.right {
+  background-image: url(https://picsum.photos/800/600/?image=590);
+  background-repeat: no-repeat;
+  background-position: center;
+  color: var(--navsTXT);
+  font-family: 'Cutive Mono', monospace;
+  font-size: 24pt;
+}
+
+/*.one {
+  background-image: url(https://picsum.photos/800/600/?image=590);
+  background-repeat: no-repeat;
+  background-position: center;
+} */
 
 .one, .three, .five {
   border: 2px solid var(--boxBorders);
+  object-fit: cover;
 }
 
 .two, .four, .six {
@@ -117,7 +158,9 @@ nav a.active {
 
 @media screen and (min-width: 400px) {
   .grid-container{grid-template-columns: repeat(1, 1fr);}
-  .grid-container { grid-template-areas:
+  .top { grid-template-areas:
+                                          "lt ct rt";}
+  .bottom{ grid-template-areas:
                                           "lt"
                                           "ct"
                                           "rt"
@@ -127,11 +170,28 @@ nav a.active {
                                           "info2"
                                           "image3"
                                           "info3";}
+
+    nav ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .primary {
+      order: 1;
+      flex-grow: 0;
+    }
+
+    .secondary1 { order: 2;}
+    .secondary2 { order: 3;}
+    .secondary3 { order: 4;}
+    .secondary4 { order: 5;}
 }
 
 @media screen and (min-width: 550px) {
   .grid-container{grid-template-columns: repeat(6, 1fr);}
-  .grid-container { grid-template-areas:
+  .top { grid-template-areas:
+                                          "lt ct rt";}
+  .bottom { grid-template-areas:
                                           "lt lt ct ct rt rt"
                                           "image1 image1 image1 info1 info1 info1"
                                           "image2 image2 image2 info2 info2 info2"
@@ -148,10 +208,27 @@ nav a.active {
     margin-left: 1em;
   }
 
+  nav ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .primary {
+    order: 3;
+    flex-grow: .1;
+    font-size: 25pt;
+  }
+  .secondary1 { order: 1;}
+  .secondary2 { order: 2;}
+  .secondary3 { order: 4;}
+  .secondary4 { order: 5;}
+
 }
 @media screen and (min-width: 768px) {
   .grid-container{grid-template-columns: repeat(6, 1fr);}
-  .grid-container { grid-template-areas:
+  .top { grid-template-areas:
+                                          "lt ct rt";}
+  .bottom{ grid-template-areas:
                                           "lt lt ct ct rt rt"
                                           "image1 image1 info1 info1 info1 info1 "
                                           "image2 image2 info2 info2 info2 info2"
@@ -167,63 +244,121 @@ nav a.active {
   .left {
     margin-left: 1.5em;
   }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .primary {
+    order: 3;
+    flex-grow: .2;
+    font-size: 25pt;
+  }
+
+  .secondary1 { order: 1;}
+  .secondary2 { order: 2;}
+  .secondary3 { order: 4;}
+  .secondary4 { order: 5;}
 }
 
 @media screen and (min-width: 980px) {
   .grid-container{grid-template-columns: repeat(3, 1fr);}
-  .grid-container{ grid-template-areas:
+  .top { grid-template-areas:
+                                          "lt ct rt";}
+  .bottom{ grid-template-areas:
                                           "lt ct rt"
                                           "image1 info1 info1"
                                           "image2 info2 info2"
                                           "image3 info3 info3";}
 
-  .top {
-    grid-gap: 1em 4em;
+  .top { grid-gap: 1em 4em;}
+
+  .right { margin-right: 2em;}
+
+  .left { margin-left: 2em;}
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
   }
 
-  .right {
-    margin-right: 2em;
+  .primary {
+    order: 3;
+    flex-grow: .4;
+    font-size: 25pt;
   }
 
-  .left {
-    margin-left: 2em;
-  }
+  .secondary1 { order: 1;}
+  .secondary2 { order: 2;}
+  .secondary3 { order: 4;}
+  .secondary4 { order: 5;}
 }
 @media screen and (min-width: 1280px) {
   .grid-container{grid-template-columns: repeat(3, 1fr);}
-  .grid-container{ grid-template-areas:
+  .top { grid-template-areas:
+                                          "lt ct rt";}
+  .bottom{ grid-template-areas:
                                           "lt ct rt"
                                           "image1 info1 info1"
                                           "image2 info2 info2"
                                           "image3 info3 info3";}
-  .top {
-    grid-gap: 1em 6em;
+  .top { grid-gap: 1em 6em;}
+
+  .right { margin-right: 3em;}
+
+  .left { margin-left: 3em;}
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
   }
 
-  .right {
-    margin-right: 3em;
+  .primary {
+    order: 3;
+    flex-grow: .4;
+    font-size: 25pt;
   }
 
-  .left {
-    margin-left: 3em;
-  }
+  .secondary1 { order: 1;}
+  .secondary2 { order: 2;}
+  .secondary3 { order: 4;}
+  .secondary4 { order: 5;}
 }
+
 @media screen and (min-width: 1440px) {
   .grid-container{grid-template-columns: repeat(3, 1fr);}
-  .grid-container{ grid-template-areas:
+
+  .top { grid-template-areas:
+                                          "lt ct rt";}
+  .bottom { grid-template-areas:
                                           "lt ct rt"
                                           "image1 info1 info1"
                                           "image2 info2 info2"
                                           "image3 info3 info3";}
-  .top {
-    grid-gap: 1em 6em;
+  .top { grid-gap: 1em 6em; }
+
+  .right { margin-right: 3em;}
+
+  .left { margin-left: 3em;}
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
   }
 
-  .right {
-    margin-right: 3em;
-  }
+  .primary {
+    order: 3;
+    flex-grow: .4;
+    font-size: 25pt;
+}
+  .secondary1 { order: 1;}
+  .secondary2 { order: 2;}
+  .secondary3 { order: 4;}
+  .secondary4 { order: 5;}
+}
 
-  .left {
-    margin-left: 3em;
-  }
+img {
+  width: 100%;
+  height: auto;
 }
