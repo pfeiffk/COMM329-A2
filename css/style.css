@@ -4,6 +4,7 @@
   --boxBorders: #31132D;
   --boxBG: #D5D6DE;
   --BG: #E2E3E2;
+  --lightBG: #B6DFF8;
 }
 body {
   background-color: var(--BG);
@@ -80,7 +81,6 @@ nav a.active {
 
 .top {
   grid-gap: 1em 6em;
-
 }
 
 .grid-item {
@@ -122,15 +122,39 @@ nav a.active {
   font-size: 24pt;
 }
 
-/*.one {
-  background-image: url(https://picsum.photos/800/600/?image=590);
+.one {
+  background-image: url(https://picsum.photos/600/400/?image=352);
   background-repeat: no-repeat;
   background-position: center;
-} */
+  padding: 4em;
+  color: var(--navsBG);
+  font-family: 'Cutive Mono', monospace;
+  font-size: 24pt;
+}
 
+.three {
+  background-image: url(https://picsum.photos/600/400/?image=318);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 4em;
+  color: var(--navsBG);
+  font-family: 'Cutive Mono', monospace;
+  font-size: 24pt;
+}
+
+.five {
+  background-image: url(https://picsum.photos/600/400/?image=374);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 4em;
+  color: var(--navsBG);
+  font-family: 'Cutive Mono', monospace;
+  font-size: 24pt;
+}
 .one, .three, .five {
   border: 2px solid var(--boxBorders);
   object-fit: cover;
+  justify-content: space-around;
 }
 
 .two, .four, .six {
