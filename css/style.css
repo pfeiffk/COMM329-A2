@@ -1,10 +1,13 @@
 :root {
   --navsBG: #000F08;
   --navsTXT: #BFC3BA;
-  --boxBorders: #31132D;
-  --boxBG: #D5D6DE;
-  --BG: #E2E3E2;
-  --lightBG: #B6DFF8;
+  --boxBorders: #072F53;
+/*  --boxBG: #D5D6DE; */
+  --boxBG: #9CBED7;
+  /*--BG: #EFF3F5;*/
+  --BG: #EAF0F2;
+  --lightblueBG: #C6D6DD;
+  --darkblueTXT: #072F53;
 }
 body {
   background-color: var(--BG);
@@ -62,7 +65,7 @@ nav a.active {
   border-bottom: 2px solid var(--boxBorders);
 }
 
-/* .flex-container {
+/*.flex-container {
  margin-bottom: 1em;
  padding: 1em;
  display: flex;
@@ -77,12 +80,20 @@ nav a.active {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1em 1em;
   padding: 1em;
+
 }
 
 .top {
-  grid-gap: 1em 6em;
+  grid-gap: 1em 4em;
 }
 
+.top div:hover {
+  cursor: pointer;
+}
+
+.top h4:hover {
+  border-bottom: 2px dashed var(--darkblueTXT);
+}
 .grid-item {
   padding: 1em;
 }
@@ -91,65 +102,53 @@ nav a.active {
   display: flex;
   justify-content: center;
   border: 2px solid var(--boxBorders);
-  background-color: var(--boxBG);
-  padding: 2em;
+  background-color: var(--lightblueBG);
+  padding: 2em
 }
 
 .left {
-  background-image: url(https://picsum.photos/800/600/?image=590);
-  background-repeat: no-repeat;
-  background-position: center;
-  color: var(--navsTXT);
+  color: var(--darkblueTXT);
   font-family: 'Cutive Mono', monospace;
   font-size: 24pt;
 }
 
 .center {
-  background-image: url(https://picsum.photos/800/600/?image=590);
-  background-repeat: no-repeat;
-  background-position: center;
-  color: var(--navsTXT);
+  color: var(--darkblueTXT);
   font-family: 'Cutive Mono', monospace;
   font-size: 24pt;
 }
 
 .right {
-  background-image: url(https://picsum.photos/800/600/?image=590);
-  background-repeat: no-repeat;
-  background-position: center;
-  color: var(--navsTXT);
+  color: var(--darkblueTXT);
   font-family: 'Cutive Mono', monospace;
   font-size: 24pt;
 }
 
 .one {
-  background-image: url(https://picsum.photos/600/400/?image=352);
+  background-image: url(https://picsum.photos/400/300/?image=382);
   background-repeat: no-repeat;
   background-position: center;
   padding: 4em;
-  color: var(--navsBG);
-  font-family: 'Cutive Mono', monospace;
   font-size: 24pt;
+  background-size: cover;
 }
 
 .three {
-  background-image: url(https://picsum.photos/600/400/?image=318);
+  background-image: url(https://picsum.photos/400/300/?image=1025);
   background-repeat: no-repeat;
   background-position: center;
   padding: 4em;
-  color: var(--navsBG);
-  font-family: 'Cutive Mono', monospace;
   font-size: 24pt;
+  background-size: cover;
 }
 
 .five {
-  background-image: url(https://picsum.photos/600/400/?image=374);
+  background-image: url(https://picsum.photos/500/300/?image=737);
   background-repeat: no-repeat;
   background-position: center;
   padding: 4em;
-  color: var(--navsBG);
-  font-family: 'Cutive Mono', monospace;
   font-size: 24pt;
+  background-size: cover;
 }
 .one, .three, .five {
   border: 2px solid var(--boxBorders);
@@ -157,9 +156,25 @@ nav a.active {
   justify-content: space-around;
 }
 
+.one div:hover   {cursor: pointer;}
+.three div:hover {cursor: pointer;}
+.five div:hover  {cursor: pointer;}
+
 .two, .four, .six {
   border: 2px solid var(--boxBorders);
   background-color: var(--boxBG);
+}
+
+h3 {
+  font-size: 28pt;
+  font-family: 'Amatic SC', cursive, sans-serif;
+;
+
+}
+
+p {
+  font-family: 'Cutive Mono', monospace;
+
 }
 
 .left  {   grid-area: lt;  }
@@ -176,14 +191,55 @@ nav a.active {
 
 .four  { grid-area: info2; }
 
-.five  { grid-area: image3;}
+.five  {
+  grid-area: image3;
+  margin-bottom: .74em;
+}
 
-.six   { grid-area: info3; }
+.six   {
+  grid-area: info3;
+  margin-bottom: 1.5em;
+}
+
+@media screen and (min-width: 300px) {
+  .grid-container{grid-template-columns: repeat(1, 1fr);}
+  .top { grid-template-areas:
+                                          "lt"
+                                          "ct"
+                                          "rt";}
+  .bottom{ grid-template-areas:
+                                          "lt"
+                                          "ct"
+                                          "rt"
+                                          "image1"
+                                          "info1"
+                                          "image2"
+                                          "info2"
+                                          "image3"
+                                          "info3";}
+
+    nav ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .primary {
+      order: 1;
+      flex-grow: 0;
+    }
+
+    .secondary1 { order: 2;}
+    .secondary2 { order: 3;}
+    .secondary3 { order: 4;}
+    .secondary4 { order: 5;}
+}
 
 @media screen and (min-width: 400px) {
   .grid-container{grid-template-columns: repeat(1, 1fr);}
   .top { grid-template-areas:
-                                          "lt ct rt";}
+                                          "lt"
+                                          "ct"
+                                          "rt";}
   .bottom{ grid-template-areas:
                                           "lt"
                                           "ct"
@@ -214,7 +270,7 @@ nav a.active {
 @media screen and (min-width: 550px) {
   .grid-container{grid-template-columns: repeat(6, 1fr);}
   .top { grid-template-areas:
-                                          "lt ct rt";}
+                                          "lt lt ct ct rt rt";}
   .bottom { grid-template-areas:
                                           "lt lt ct ct rt rt"
                                           "image1 image1 image1 info1 info1 info1"
@@ -251,14 +307,17 @@ nav a.active {
 @media screen and (min-width: 768px) {
   .grid-container{grid-template-columns: repeat(6, 1fr);}
   .top { grid-template-areas:
-                                          "lt ct rt";}
+                                          "lt lt ct ct rt rt";}
   .bottom{ grid-template-areas:
                                           "lt lt ct ct rt rt"
                                           "image1 image1 info1 info1 info1 info1 "
                                           "image2 image2 info2 info2 info2 info2"
                                           "image3 image3 info3 info3 info3 info3";}
+
+  .bottom { grid-column-gap: 1em;}
+
   .top {
-    rid-gap: 1em 3em;
+    grid-gap: 1em 3em;
   }
 
   .right {
@@ -296,11 +355,11 @@ nav a.active {
                                           "image2 info2 info2"
                                           "image3 info3 info3";}
 
-  .top { grid-gap: 1em 4em;}
+  .top   { grid-gap: 1em 2em; }
 
-  .right { margin-right: 2em;}
+  .right { margin-right: 1em;}
 
-  .left { margin-left: 2em;}
+  .left  { margin-left: 1em; }
 
   nav ul {
     display: flex;
@@ -327,11 +386,11 @@ nav a.active {
                                           "image1 info1 info1"
                                           "image2 info2 info2"
                                           "image3 info3 info3";}
-  .top { grid-gap: 1em 6em;}
+  .top { grid-gap: 1em 4em;}
 
-  .right { margin-right: 3em;}
+  .right { margin-right: 2em;}
 
-  .left { margin-left: 3em;}
+  .left { margin-left: 2em;}
 
   nav ul {
     display: flex;
