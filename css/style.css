@@ -11,7 +11,9 @@
 }
 body {
   background-color: var(--BG);
+  overflow-x: hidden;
 }
+
 nav ul {
   justify-content: space-around;
   align-items: center;
@@ -38,25 +40,24 @@ nav a:link, nav a:visited {
   color: var(--navsTXT);
   text-decoration: none;
 }
+
 nav a:hover, nav a:active  {
   color: #F0F0F0;
   text-decoration: underline;
 }
-nav a.active {
-  color: #F0F0F0;
-}
+nav a.active { color: #F0F0F0; }
 
 div a:link, div a:visited {
   color: var(--darkblueTXT);
   text-decoration: none;
 }
+
 div a:hover, nav a:active  {
   color: #F0F0F0;
   text-decoration: underline;
 }
-div a.active {
-  color: #F0F0F0;
-}
+
+div a.active { color: #F0F0F0;}
 
 i {
   font-size: 18pt;
@@ -64,6 +65,7 @@ i {
   transform: translateY(-18%);
   padding-left: .3em;
 }
+
 .primary {
   text-align: center;
   font-family: 'Cutive Mono', monospace;
@@ -98,23 +100,13 @@ i {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1em 1em;
   padding: 1em;
-
 }
 
-.top {
-  grid-gap: 1em 4em;
-}
+.top           { grid-gap: 1em 4em; }
+.top div:hover { cursor: pointer; }
+.top h4:hover  { text-decoration: underline; }
 
-.top div:hover {
-  cursor: pointer;
-}
-
-.top h4:hover {
-  text-decoration: underline;
-}
-.grid-item {
-  padding: 1em;
-}
+.grid-item { padding: 1em; }
 
 .left, .center, .right {
   display: flex;
@@ -212,9 +204,12 @@ i {
   text-align: center;
   font-family: 'Cutive Mono', monospace;
 }
+
 .two, .four, .six {
   border: 2px solid var(--boxBorders);
   background-color: var(--boxBG);
+  min-width: 0;
+  min-height: 0;
 }
 
 h3 {
@@ -222,30 +217,19 @@ h3 {
   font-family: 'Amatic SC', cursive, sans-serif;
 }
 
-p {
-  font-family: 'Cutive Mono', monospace;
-
-}
+p { font-family: 'Cutive Mono', monospace; }
 
 .left  {   grid-area: lt;  }
-
 .center{   grid-area: ct;  }
-
 .right {   grid-area: rt;  }
-
 .one   { grid-area: image1;}
-
 .two   { grid-area: info1; }
-
 .three { grid-area: image2;}
-
 .four  { grid-area: info2; }
-
 .five  {
   grid-area: image3;
   margin-bottom: .74em;
 }
-
 .six   {
   grid-area: info3;
   margin-bottom: 1.5em;
@@ -258,9 +242,6 @@ p {
                                           "ct"
                                           "rt";}
   .bottom{ grid-template-areas:
-                                          "lt"
-                                          "ct"
-                                          "rt"
                                           "image1"
                                           "info1"
                                           "image2"
@@ -284,6 +265,7 @@ p {
     .secondary2 { order: 3;}
     .secondary3 { order: 4;}
     .secondary4 { order: 5;}
+
 }
 
 @media screen and (min-width: 400px) {
@@ -293,9 +275,6 @@ p {
                                           "ct"
                                           "rt";}
   .bottom{ grid-template-areas:
-                                          "lt"
-                                          "ct"
-                                          "rt"
                                           "image1"
                                           "info1"
                                           "image2"
@@ -321,69 +300,24 @@ p {
     .secondary4 { order: 5;}
 }
 
-@media screen and (min-width: 550px) {
-  .grid-container{grid-template-columns: repeat(6, 1fr);}
-  .top { grid-template-areas:
-                                          "lt lt ct ct rt rt";}
-  .bottom { grid-template-areas:
-                                          "lt lt ct ct rt rt"
-                                          "image1 image1 image1 info1 info1 info1"
-                                          "image2 image2 image2 info2 info2 info2"
-                                          "image3 image3 image3 info3 info3 info3";}
-  .top {
-    grid-gap: 1em 2em;
-  }
 
-  .right {
-    margin-right: 1em;
-  }
-
-  .left {
-    margin-left: 1em;
-  }
-
-  nav ul {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .primary {
-    order: 3;
-    flex-grow: .1;
-    font-size: 25pt;
-  }
-
-  .five {margin-bottom: .74em;}
-
-  .secondary1 { order: 1;}
-  .secondary2 { order: 2;}
-  .secondary3 { order: 4;}
-  .secondary4 { order: 5;}
-
-}
 @media screen and (min-width: 768px) {
-  .grid-container{grid-template-columns: repeat(6, 1fr);}
+  .top {grid-template-columns: repeat(1, 1fr);}
   .top { grid-template-areas:
-                                          "lt lt ct ct rt rt";}
+                                          "lt"
+                                          "ct"
+                                          "rt";
+        align-items: center;
+  }
+  .bottom{grid-template-columns: repeat(6,1fr);}
   .bottom{ grid-template-areas:
-                                          "lt lt ct ct rt rt"
-                                          "image1 image1 info1 info1 info1 info1 "
-                                          "image2 image2 info2 info2 info2 info2"
-                                          "image3 image3 info3 info3 info3 info3";}
+                                          "image1 info1 info1 info1 info1 info1 "
+                                          "image2 info2 info2 info2 info2 info2"
+                                          "image3 info3 info3 info3 info3 info3";}
 
   .bottom { grid-column-gap: 1em;}
 
-  .top {
-    grid-gap: 1em 3em;
-  }
-
-  .right {
-    margin-right: 1.5em;
-  }
-
-  .left {
-    margin-left: 1.5em;
-  }
+  .top   { grid-gap: 1em 3em;  }
 
   nav ul {
     display: flex;
@@ -402,6 +336,7 @@ p {
   .secondary2 { order: 2;}
   .secondary3 { order: 4;}
   .secondary4 { order: 5;}
+
 }
 
 @media screen and (min-width: 980px) {
@@ -409,15 +344,12 @@ p {
   .top { grid-template-areas:
                                           "lt ct rt";}
   .bottom{ grid-template-areas:
-                                          "lt ct rt"
                                           "image1 info1 info1"
                                           "image2 info2 info2"
                                           "image3 info3 info3";}
 
   .top   { grid-gap: 1em 2em; }
-
   .right { margin-right: 1em;}
-
   .left  { margin-left: 1em; }
 
   nav ul {
@@ -443,15 +375,12 @@ p {
   .top { grid-template-areas:
                                           "lt ct rt";}
   .bottom{ grid-template-areas:
-                                          "lt ct rt"
                                           "image1 info1 info1"
                                           "image2 info2 info2"
                                           "image3 info3 info3";}
-  .top { grid-gap: 1em 4em;}
-
+  .top   { grid-gap: 1em 4em;}
   .right { margin-right: 2em;}
-
-  .left { margin-left: 2em;}
+  .left  { margin-left: 2em; }
 
   nav ul {
     display: flex;
@@ -478,15 +407,12 @@ p {
   .top { grid-template-areas:
                                           "lt ct rt";}
   .bottom { grid-template-areas:
-                                          "lt ct rt"
                                           "image1 info1 info1"
                                           "image2 info2 info2"
                                           "image3 info3 info3";}
-  .top { grid-gap: 1em 6em; }
-
+  .top   { grid-gap: 1em 6em;}
   .right { margin-right: 3em;}
-
-  .left { margin-left: 3em;}
+  .left  { margin-left: 3em; }
 
   nav ul {
     display: flex;
