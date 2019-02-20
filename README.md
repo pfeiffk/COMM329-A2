@@ -11,6 +11,6 @@ Solution attempts may have failed due to the abnormal structuring of the over-al
 
 //--OTHER STATEMENTS--//
 All other functionality appears to be working properly. 
-Text content for the page was provided by cheese ipsum, cupcake ipsum, and what I believe to be Futurama quotes.
+Text content for the page was provided by cheese ipsum, cupcake ipsum, and what I believe to be Futurama quotes(a tv show quote based ipsum).
 City links within the body of the page will lead to an external google map for that location.
 If able, I would restart the project in order to get the page functioning at all screen sizes. 
